@@ -9,7 +9,7 @@ class Index extends Component {
         super(props);
 
         this.state = {
-            defaultData: {}
+            defaultData: []
         };
 
         this.bindAFunction = this.bindAFunction.bind(this);
@@ -23,12 +23,12 @@ class Index extends Component {
         return (
             <div>
                 <StatelessView data={this.state.defaultData}/>
+                <button onClick={() => { this.getData();}}>Click Button</button>
             </div>
         )
     }
 
-    // do a api request on component lifecycle mount
-    componentDidMount() {
+    getData() {
         fetch('/api/data/get')
             .then((response) => {
                 // return the data as json
@@ -44,6 +44,11 @@ class Index extends Component {
                     });
                 }
             });
+    }
+
+    // do a api request on component lifecycle mount
+    componentDidMount() {
+        this.getData();
     }
 }
 

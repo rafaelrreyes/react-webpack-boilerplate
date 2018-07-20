@@ -6,6 +6,9 @@ const exports = {
             data: [
                 {
                     name: 'Rafa'
+                },
+                {
+                    name: 'Sarah'
                 }
             ]
         });
